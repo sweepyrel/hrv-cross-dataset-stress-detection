@@ -34,6 +34,29 @@ Evaluation uses **Stratified Group K-Fold Cross Validation**, so recordings from
 * K-Nearest Neighbors (KNN)
 * Support Vector Machine (SVM)
 
+## Results
+
+Performance of each model under cross-dataset evaluation with Stratified Group K-Fold Cross Validation:
+
+| Model    | Accuracy (%) | F1-score (%) |
+| -------- | ------------ | ------------ |
+| MLP      | 80.99        | 79.11        |
+| AdaBoost | 79.67        | 77.99        |
+| KNN      | 78.91        | 76.03        |
+| SVM      | 83.12        | 83.05        |
+
+### Key Findings
+
+* **All four algorithms classified the three conditions well** (normal, academic stress, and driving stress) in the cross-dataset setting.
+* **No model clearly outperformed the others.** SVM achieved the highest F1-score, but statistical tests showed that the performance differences between models are not significant, so the four algorithms can be considered comparable.
+* **Academic stress is the easiest condition to separate.** The dominant misclassifications occurred between normal and driving stress, while AUC was consistently higher for academic stress.
+* **No single HRV feature was consistently the most important or the most stable** across all models, stressor types, and datasets. Feature contribution and consistency depend on the combination of classifier, stressor type, and dataset.
+* **Engineered features often mattered more than conventional HRV features.** In particular, features based on pNN50 and RMSSD tended to play an important role more frequently.
+
+### Takeaway
+
+Successful HRV-based stress detection in a cross-dataset setting depends on the interaction between the model, the type of stressor, and the data source. No single combination of features and model performs best universally, so feature and algorithm selection should be adapted to the characteristics of the data.
+
 ## Features
 
 | Feature | Description |
@@ -103,19 +126,6 @@ pip install numpy pandas scikit-learn tsfel scipy matplotlib
 **Step 3: Run the notebooks in order**
 
 Open the notebooks in Jupyter or Google Colab and run them from `01` to `05`. Each notebook builds on the output of the previous one.
-
-## Results
-
-Add your main findings here, for example a table comparing the models:
-
-| Model | Accuracy | F1-score |
-| ----- | -------- | -------- |
-| MLP | YOUR-VALUE | YOUR-VALUE |
-| AdaBoost | YOUR-VALUE | YOUR-VALUE |
-| KNN | YOUR-VALUE | YOUR-VALUE |
-| SVM | YOUR-VALUE | YOUR-VALUE |
-
-**Key findings:** write two or three sentences about the most important features and which model performed best.
 
 ## Tools
 
