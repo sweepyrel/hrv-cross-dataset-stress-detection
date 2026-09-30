@@ -144,4 +144,6 @@ Made by **AURELIA ARDHANISA PUTRI** as part of an undergraduate thesis.
 
 ## License
 
-This project is released under the MIT License. See the [LICENSE](LICENSE) file for details.
+Copyright (c) 2026 Aurelia Ardhanisa Putri. All rights reserved.
+
+This repository is shared for viewing and academic reference only. If you would like to use, adapt, or build on this work, please contact me first at aureliaardhanisap@gmail.com
