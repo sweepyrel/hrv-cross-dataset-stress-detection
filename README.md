@@ -1,31 +1,79 @@
+<div align="center">
+
 # HRV Cross-Dataset Stress Detection
+
+**Can heart rate variability tell us when someone is stressed, across different settings?**
+
+Implementation of an undergraduate thesis on cross-dataset stress detection using Heart Rate Variability (HRV) features and machine learning.
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white)
+![License: MIT](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+
+</div>
+
+---
 
 ## Overview
 
-This repository contains the implementation of an undergraduate thesis on cross-dataset stress detection using Heart Rate Variability (HRV) features and machine learning.
+Most stress detection studies train and test on a single dataset, which can make results look better than they would be in real life. This project takes a stricter approach by evaluating models **across datasets** with different stress conditions.
 
-The study investigates the consistency and contribution of HRV features for classifying three conditions (normal, academic stress, and driving stress) using a cross-dataset evaluation framework based on Stratified Group K-Fold Cross Validation. Four machine learning algorithms were evaluated:
+The study investigates the **consistency and contribution of HRV features** for classifying three conditions:
 
-- Multi-Layer Perceptron (MLP)
-- AdaBoost
-- K-Nearest Neighbors (KNN)
-- Support Vector Machine (SVM)
+* Normal
+* Academic stress
+* Driving stress
+
+Evaluation uses **Stratified Group K-Fold Cross Validation**, so recordings from the same subject never appear in both training and test sets.
+
+## Models Evaluated
+
+* Multi-Layer Perceptron (MLP)
+* AdaBoost
+* K-Nearest Neighbors (KNN)
+* Support Vector Machine (SVM)
+
+## Features
+
+| Feature | Description |
+| ------- | ----------- |
+| HRV time-domain features | Standard time-domain measures computed from RR intervals |
+| Temporal features | Extracted with the TSFEL library |
+| Feature engineering | Additional HRV-based features built on top of the base set |
+| Cross-dataset evaluation | Models tested across different datasets and conditions |
+| Permutation importance | Identifies which features contribute most to classification |
+| Statistical testing | Checks whether differences between models are significant |
+
+## Workflow
+
+```text
+Raw RR data -> Preprocessing -> Feature extraction -> Training and evaluation -> Feature importance -> Statistical tests
+```
+
+| Notebook | Purpose |
+| -------- | ------- |
+| `01_preprocessing.ipynb` | Clean and prepare the raw datasets |
+| `02_feature_extraction.ipynb` | Extract HRV and temporal features |
+| `03_training_evaluation.ipynb` | Train and evaluate MLP, AdaBoost, KNN, and SVM |
+| `04_permutation_importance.ipynb` | Analyze feature importance |
+| `05_statistical_tests.ipynb` | Run statistical significance tests |
 
 ## Datasets
 
-This project uses three publicly available datasets from PhysioNet:
+The datasets are **not included** in this repository. This project uses three publicly available datasets from PhysioNet:
 
-- Wearable Exam Stress Dataset
-- Driving Stress Database
-- Normal Sinus Rhythm RR Interval Database
+* Wearable Exam Stress Dataset
+* Driving Stress Database
+* Normal Sinus Rhythm RR Interval Database
 
-Please download the datasets from the official PhysioNet website:
+Please download them from the official PhysioNet website: [https://physionet.org/](https://physionet.org/)
 
-- https://physionet.org/
+After downloading, place the files in the appropriate project directory before running the notebooks.
 
 ## Project Structure
 
-```
+```text
 hrv-cross-dataset-stress-detection/
 │
 ├── notebooks/
@@ -40,15 +88,51 @@ hrv-cross-dataset-stress-detection/
 └── .gitignore
 ```
 
-## Features
+## How to Run
 
-- HRV time-domain feature extraction
-- Temporal feature extraction using TSFEL
-- HRV feature engineering
-- Cross-dataset evaluation
-- Feature importance analysis using permutation importance
-- Statistical significance testing
+**Step 1: Get the data**
+
+Download the three datasets from PhysioNet and place them in the project directory.
+
+**Step 2: Install the requirements**
+
+```bash
+pip install numpy pandas scikit-learn tsfel scipy matplotlib
+```
+
+**Step 3: Run the notebooks in order**
+
+Open the notebooks in Jupyter or Google Colab and run them from `01` to `05`. Each notebook builds on the output of the previous one.
+
+## Results
+
+Add your main findings here, for example a table comparing the models:
+
+| Model | Accuracy | F1-score |
+| ----- | -------- | -------- |
+| MLP | YOUR-VALUE | YOUR-VALUE |
+| AdaBoost | YOUR-VALUE | YOUR-VALUE |
+| KNN | YOUR-VALUE | YOUR-VALUE |
+| SVM | YOUR-VALUE | YOUR-VALUE |
+
+**Key findings:** write two or three sentences about the most important features and which model performed best.
+
+## Tools
+
+* Python
+* Jupyter Notebook
+* scikit-learn
+* TSFEL
+
+## Citation
+
+If you use this code or build on this work, please credit this repository and the original PhysioNet datasets.
+
+## Author
+
+Made by **AURELIA ARDHANISA PUTRI** as part of an undergraduate thesis.
+
 
 ## License
 
-This project is released under the MIT License.
+This project is released under the MIT License. See the [LICENSE](LICENSE) file for details.
