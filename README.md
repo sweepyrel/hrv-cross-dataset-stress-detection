@@ -9,7 +9,6 @@ Implementation of an undergraduate thesis on cross-dataset stress detection usin
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white)
-![License: MIT](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
 </div>
 
